@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    justify-content: center;
+}
+.container{
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to right,  #b2fefa, #0ed2f7);
+    padding: 10px;
+}
+.todoApp{
+    margin-top: 200px;
+    box-shadow: darkslategrey;
+}
+.todoApp h1{
+    display: flex;
+    justify-content: center;
+    color: blue;
+}
+.text-field{
+    padding: 20px;
+    justify-content: center;
+
+    display: flex;
+}
+#inputBox{
+    box-shadow: 2px 2px 10px;
+
+    height: 50px;
+    width: 280px;
+    border: transparent;
+    border-radius: 5px;
+    margin: 5px;
+    display: flex;
+}
+#addBtn{
+    box-shadow: 2px 2px 10px;
+
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 80px;
+    border: transparent;
+    border-radius: 5px;
+    margin: 5px;
+    background-image: linear-gradient(to right, #ff00cc ,#333399);
+}
+#List-box{
+    margin-left: 470px;
+    margin-right: 470px;
+   
+}
+#List-box li{
+    background-color: white;
+    margin: 20px;
+   
+}
+ul li{
+    display: flex;
+    box-shadow: 2px 2px 10px;
+
+    list-style: none;
+    font-size: 20px;
+    padding: 17px;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 10px;
+   position: relative;
+
+}
+ul li::before{
+    content: '';
+    position: absolute;
+    height: 40px;
+    width: 30px;
+    border-radius: 5px;
+    background-image: url(./box\ image.png);
+    background-size: cover;
+    background-position: center;
+    top: 10px;
+    left: 20px;
+
+}
+ul li.checked{
+    text-decoration: line-through;
+}
+ul li.checked::before{
+    background-image: url(./images.png);
+    
+}
+ul li span{
+    position:absolute;
+    right: 0;
+    top: 20px;
+    height: 50px;
+    width: 50px;
+    font-size: 22px;
+    text-align: center;
+    color: black;
+}
+ul li span:hover{
+    color: #4ca2cd;
+}
