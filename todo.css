@@ -1,105 +1,136 @@
-*{
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    justify-content: center;
 }
-.container{
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; 
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100vh;
     width: 100%;
-    background-image: linear-gradient(to right,  #b2fefa, #0ed2f7);
-    padding: 10px;
-}
-.todoApp{
-    margin-top: 200px;
-    box-shadow: darkslategrey;
-}
-.todoApp h1{
-    display: flex;
-    justify-content: center;
-    color: blue;
-}
-.text-field{
+    background-image: linear-gradient(to right,  #04302e, #0ed2f7);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 20px;
+}
+
+.todoApp {
+    margin-top: 50px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-image: url(./bg-image5.jpeg);
+
+    padding: 30px;
+    width: 100%;
+    max-width: 600px; 
+}
+
+.todoApp h1 {
+    text-align: center;
+    color: #333; 
+    margin-bottom: 20px;
+}
+
+.text-field {
+    display: flex;
     justify-content: center;
-
-    display: flex;
+    margin-bottom: 20px;
 }
-#inputBox{
-    box-shadow: 2px 2px 10px;
 
+#inputBox {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: black;
+    color: white;
     height: 50px;
-    width: 280px;
-    border: transparent;
+    width: 70%; 
+    border: 1px solid #ccc; 
     border-radius: 5px;
-    margin: 5px;
-    display: flex;
+    margin-right: 10px;
+    padding: 0 15px; 
+    font-size: 16px;
 }
-#addBtn{
-    box-shadow: 2px 2px 10px;
 
+#addBtn {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     height: 50px;
-    width: 80px;
-    border: transparent;
+    padding: 0 20px;
+    border: none;
     border-radius: 5px;
-    margin: 5px;
-    background-image: linear-gradient(to right, #ff00cc ,#333399);
-}
-#List-box{
-    margin-left: 470px;
-    margin-right: 470px;
-   
-}
-#List-box li{
-    background-color: white;
-    margin: 20px;
-   
-}
-ul li{
-    display: flex;
-    box-shadow: 2px 2px 10px;
-
-    list-style: none;
-    font-size: 20px;
-    padding: 17px;
-    user-select: none;
+    background-image: linear-gradient(to right, #ff00cc, #333399);
+    color: white; 
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+#addBtn:hover {
+    background-image: linear-gradient(to right, #333399, #ff00cc);
+    transform: scale(1.05);
+}
+
+#List-box {
+    margin: 0 auto; 
+    width: 100%;
+}
+
+#List-box li {
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(to right, #ff00cc, #333399);
+    color: white; 
+    cursor: pointer;
+    margin: 10px 0; 
+    padding: 5px; 
     border-radius: 10px;
-   position: relative;
-
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease; 
 }
-ul li::before{
-    content: '';
-    position: absolute;
-    height: 40px;
-    width: 30px;
-    border-radius: 5px;
-    background-image: url(./box\ image.png);
-    background-size: cover;
-    background-position: center;
-    top: 10px;
-    left: 20px;
 
+ul li:hover {
+    background-color: #f9f9f9; 
 }
-ul li.checked{
+
+ul li.checked {
     text-decoration: line-through;
+    color: gray;
 }
-ul li.checked::before{
-    background-image: url(./images.png);
-    
-}
-ul li span{
-    position:absolute;
-    right: 0;
-    top: 20px;
-    height: 50px;
-    width: 50px;
+
+ul li span {
+    margin-left: auto; 
+    height: 30px;
+    width: 30px;
     font-size: 22px;
     text-align: center;
     color: black;
+    cursor: pointer; 
+    transition: color 0.3s ease; 
 }
-ul li span:hover{
-    color: #4ca2cd;
+
+ul li span:hover {
+    color: #ff0000; 
+}
+
+@media screen and (max-width: 768px) {
+    .todoApp {
+        margin-top: 20px; 
+        padding: 20px;
+    }
+
+    #inputBox {
+        width: 60%; 
+    }
+
+    #addBtn {
+        width: 30%; 
+    }
 }
