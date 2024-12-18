@@ -1,68 +1,51 @@
 const inputBox = document.getElementById("inputBox");
 const ListBox = document.getElementById("List-box");
 
-
-function addButton(){
-    if(inputBox.value == ''){
+function addButton() {
+    if (inputBox.value === '') {
         alert("Fill the field first");
-    }
-    else{
+    } else {
         let li = document.createElement("li");
-        li.innerHTML=inputBox.value;
-        ListBox.appendChild(li);
+        li.innerHTML = inputBox.value;
 
         let span = document.createElement("span");
-        span.innerHTML= "\u00d7";
+        span.innerHTML = "\u00d7"; 
         li.appendChild(span);
+        ListBox.appendChild(li);
+
+        saveData();
     }
-   inputBox.value="";
+    inputBox.value = ""; 
 }
 
- ListBox.addEventListener("click", function(add){
-    if(add.target.tagName === "LI"){
-        add.target.classList.toggle("checked");
+function saveData() {
+    localStorage.setItem("data", ListBox.innerHTML);
+}
 
-    }
-    else if(add.target.tagName === "SPAN"){
-        const listItem = add.target.parentElement;
-              if(listItem.classList.contains("checked")){
-                listItem.remove();
-              }
-             else {
-                alert("You must check the item before deleting it.");
-              }
+function showTask() {
+    ListBox.innerHTML = localStorage.getItem("data") || ""; 
+}
+
+ListBox.addEventListener("click", function (event) {
+    if (event.target.tagName === "LI") {
+        event.target.classList.toggle("checked");
+        saveData(); 
+    } else if (event.target.tagName === "SPAN") {
+        const listItem = event.target.parentElement;
+        if (listItem.classList.contains("checked")) {
+            listItem.remove();
+            saveData(); 
+        } else {
+            alert("You must check the item before deleting it.");
+        }
     }
 });
 
-// function saveData(){
-//     localStorage.setItem("data", ListBox.innerHTML);
-//     localStorage.getItem("data");
-// }
+showTask();
 
-// function showTask(){
-//     ListBox.innerHTML = localStorage.getItem("data");
-// }
-// showTask();
+const addButtonElement = document.getElementById("addBtn");
+addButtonElement.addEventListener("click", addButton);
 
 
 
 
-// const addButton = document.getElementById("addBtn").
-// addEventListener("click", function(){
-//     const input = inputBox.value;
-
-//     if(inputBox.value === ''){
-//                 alert("Fill the field first");
-//             }
-//             let li = document.createElement("li");
-//                     li.innerHTML=inputBox.value;
-//                     ListBox.appendChild(li);
-//                     let span = document.createElement("span");
-//                     span.innerHTML= "\u00d7";
-//                     li.appendChild(span);
-
-//                 li.addEventListener("click", function(){
-//                     li.classList.toggle("checked")
-//                 })
- 
-// })
